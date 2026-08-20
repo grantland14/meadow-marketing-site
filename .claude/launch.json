@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "meadow-site",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "python3 -m http.server \"$PORT\" --directory '/Users/ashleyread/Meadow Marketing Site'"],
+      "port": 4174,
+      "autoPort": true
+    }
+  ]
+}
