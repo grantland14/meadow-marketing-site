@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
+  --ast:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg stroke='%23000' stroke-width='3.3' stroke-linecap='round'%3E%3Cpath d='M12 3.4V20.6'/%3E%3Cpath d='M3.4 12H20.6'/%3E%3Cpath d='M5.9 5.9L18.1 18.1'/%3E%3Cpath d='M18.1 5.9L5.9 18.1'/%3E%3C/g%3E%3C/svg%3E");
     --cream:#f7f3e8;
     --cream-deep:#efe9d8;
     --card:#fffcf5;
@@ -73,6 +74,11 @@
     border-bottom:1px solid rgba(51,36,16,.07);
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1080px;margin:0 auto}
+  .ast{display:inline-block;width:.62em;height:.62em;vertical-align:-.01em;flex:none}
+  @supports ((-webkit-mask-image:none) or (mask-image:none)){
+    .ast,.plan li::before,summary::after{background-color:currentColor;
+    -webkit-mask:var(--ast) center/contain no-repeat;mask:var(--ast) center/contain no-repeat}
+  }
   .wordmark{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:600;text-decoration:none;color:var(--green-deep)}
   .wordmark span{color:var(--poppy)}
   .nav-links{display:flex;gap:26px;align-items:center;list-style:none}
@@ -261,9 +267,9 @@
   .plan .per{font-size:.9rem;font-weight:700;color:var(--ink-soft);margin-bottom:22px}
   .plan.premium .per{color:#c6d3bd}
   .plan ul{list-style:none;display:grid;gap:11px;margin-bottom:30px}
-  .plan li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:.96rem;color:var(--ink-soft)}
+  .plan li{position:relative;padding-left:27px;font-weight:600;font-size:.96rem;color:var(--ink-soft)}
   .plan.premium li{color:#e6e9d8}
-  .plan li::before{content:"✳";color:var(--poppy);font-weight:800;flex:none}
+  .plan li::before{content:"";color:var(--poppy);position:absolute;left:0;top:.32em;width:.86em;height:.86em}
   .plan.premium li::before{color:var(--butter-soft)}
   .plan .btn{margin-top:auto;text-align:center}
   .plan.premium .btn{background:var(--butter-soft);color:#5c4613;box-shadow:none}
@@ -289,7 +295,7 @@
     display:flex;justify-content:space-between;align-items:center;gap:16px;
   }
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"✳";font-size:1rem;color:var(--poppy);transition:transform .25s}
+  summary::after{content:"";color:var(--poppy);flex:none;width:.85rem;height:.85rem;transition:transform .25s}
   details[open] summary::after{transform:rotate(90deg) scale(1.25)}
   details p{margin-top:12px;color:var(--ink-soft);font-size:.98rem}
 
@@ -325,7 +331,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="wordmark" href="#top">Meadow<span>✳</span></a>
+    <a class="wordmark" href="#top">Meadow<span class="ast" aria-hidden="true"></span></a>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
       <li><a href="#meadow">Your meadow</a></li>
@@ -339,11 +345,11 @@
 <header class="hero" id="top">
   <div class="hero-grid">
     <div>
-      <span class="kicker">for everyone who wants to build habits without the stress ✳</span>
+      <span class="kicker">for everyone who wants to build habits without the stress <i class="ast" aria-hidden="true"></i></span>
       <h1>Build positive habits and watch your meadow <span class="u">bloom<svg viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 Q 28 3 54 9 T 104 9 T 152 8 T 196 7" fill="none" stroke="#dd6f52" stroke-width="5" stroke-linecap="round"/></svg></span>.</h1>
       <p class="sub">Meadow turns whatever movement you can manage — a walk, a stretch, a slow dance round the kitchen — into a wildflower meadow that grows with you. No streaks. No guilt. Nothing can ever wilt.</p>
       <div class="hero-ctas">
-        <a class="btn" href="#pricing">Plant Day 1 ✳</a>
+        <a class="btn" href="#pricing">Plant Day 1 <i class="ast" aria-hidden="true"></i></a>
         <a class="btn ghost" href="#how">See how it grows</a>
       </div>
       <span class="cta-note">first week free — cancel anytime</span>
@@ -382,7 +388,7 @@
         <div class="stepnum"><svg viewBox="0 0 56 56" aria-hidden="true"><ellipse cx="28" cy="28" rx="25" ry="23" fill="none" stroke="#f7d991" stroke-width="3" transform="rotate(8 28 28)"/></svg>2</div>
         <h3>Move, your way</h3>
         <p>A walk, a swim, the garden, a good stretch — you pick. On low days, ten gentle minutes is a win. And ninety seconds? Still counts.</p>
-        <span class="note hand">any movement is movement ✳</span>
+        <span class="note hand">any movement is movement <i class="ast" aria-hidden="true"></i></span>
       </div>
       <div class="step">
         <div class="stepnum"><svg viewBox="0 0 56 56" aria-hidden="true"><ellipse cx="28" cy="28" rx="25" ry="23" fill="none" stroke="#f3ded4" stroke-width="3" transform="rotate(-10 28 28)"/></svg>3</div>
@@ -435,7 +441,7 @@
       <div class="no-chip">no flames</div>
       <div class="no-chip">no guilt trips</div>
       <div class="no-chip">no "you've lost it all"</div>
-      <div class="no-chip yes">just flowers that stay ✳</div>
+      <div class="no-chip yes">just flowers that stay <i class="ast" aria-hidden="true"></i></div>
     </div>
     <span class="big-hand">You can't fail at feeling better.</span>
   </div>
@@ -612,7 +618,7 @@
     <span class="kicker">ready when you are</span>
     <h2>Your meadow is waiting.</h2>
     <p>One gentle thing today, and your first wildflower blooms. Feeling better shouldn't be something you can fail at — so we made sure you can't.</p>
-    <a class="btn" href="#top" style="font-size:1.1rem;padding:16px 36px">Plant Day 1 ✳</a>
+    <a class="btn" href="#top" style="font-size:1.1rem;padding:16px 36px">Plant Day 1 <i class="ast" aria-hidden="true"></i></a>
     <br><span class="cta-note">your flowers will be here whenever you are</span>
   </div>
     <div class="grow-wrap">
@@ -721,8 +727,8 @@
 <footer>
   <div class="foot-inner">
     <div>
-      <a class="wordmark" href="#top">Meadow<span style="color:var(--butter-soft)">✳</span></a>
-      <p>Habits to help you feel better. Consistency, not intensity. Made with care by Wildcard✳Wellness.</p>
+      <a class="wordmark" href="#top">Meadow<span class="ast" style="color:var(--butter-soft)" aria-hidden="true"></span></a>
+      <p>Habits to help you feel better. Consistency, not intensity. Made with care by Wildcard<i class="ast" aria-hidden="true"></i>Wellness.</p>
     </div>
     <div class="foot-links">
       <div>
@@ -746,7 +752,7 @@
     </div>
   </div>
   <div class="copyright">
-    <span>© 2026 Wildcard✳Wellness. All rights reserved.</span>
+    <span>© 2026 Wildcard<i class="ast" aria-hidden="true"></i>Wellness. All rights reserved.</span>
     <span class="hand">Nothing here can ever wilt.</span>
   </div>
 </footer>
